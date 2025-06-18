@@ -1,0 +1,32 @@
+<div class="w-full max-w-4xl mx-auto mt-8">
+  <h2 class="text-2xl font-bold mb-6 text-center">Regalos disponibles</h2>
+
+  <ul *ngIf="gifts.length > 0; else noGifts" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <li *ngFor="let gift of gifts" class="border p-4 rounded shadow bg-white">
+      <h3 class="font-bold text-lg mb-1">{{ gift.name }}</h3>
+      <p class="text-sm text-gray-600 mb-2">{{ gift.description }}</p>
+
+      <div class="flex flex-col gap-2">
+        <a *ngIf="gift.permalink" [href]="gift.permalink" target="_blank" class="text-blue-500 underline text-sm">
+          Ver producto
+        </a>
+
+        <button
+          *ngIf="!gift.isSelected"
+          (click)="selectGift(gift)"
+          class="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700 text-sm"
+        >
+          Seleccionar este regalo
+        </button>
+
+        <div *ngIf="gift.isSelected" class="text-green-600 text-sm font-medium">
+          Ya fue elegido por {{ gift.selectedBy?.nombre }} {{ gift.selectedBy?.apellido }}
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <ng-template #noGifts>
+    <p class="text-gray-300 text-center">Todavía no hay regalos agregados por el anfitrión.</p>
+  </ng-template>
+</div>

@@ -1,0 +1,92 @@
+<section class="container flex flex-col justify-between mt-12">
+  <div class="w-full mb-8">
+    <h2 class="mb-6 text-2xl font-bold">Buscar productos</h2>
+
+    <div class="input-container mb-4">
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        placeholder="Buscar productos..."
+        class="border p-2 w-full"
+      />
+      <button (click)="search()" class="bg-yellow-500 text-black p-2 mt-2 w-full">
+        Buscar
+      </button>
+    </div>
+
+    <div *ngIf="loading" class="mt-4">
+      <p>Cargando productos...</p>
+    </div>
+
+    <div *ngIf="visibleResults.length > 0; else noProducts" class="mt-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div
+          *ngFor="let product of visibleResults"
+          class="bg-gray-800 p-4 rounded-md shadow-md flex flex-col items-center"
+        >
+          <img [src]="product.thumbnail" [alt]="product.name" class="w-40 h-40 object-contain mb-4" />
+          <h3 class="text-lg font-semibold text-center">{{ product.name }}</h3>
+          <p class="text-sm text-center mb-4">{{ product.description }}</p>
+          <div class="flex gap-2">
+            <a [href]="product.permalink" class="text-blue-400 underline" target="_blank">Ver Producto</a>
+            <button (click)="addGift(product)" class="bg-yellow-500 text-black px-2 py-1 rounded hover:bg-yellow-400">
+              Agregar Producto
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-center mt-6 items-center gap-6">
+        <button
+          (click)="prevPage()"
+          [disabled]="currentPage === 1"
+          class="px-4 py-2 rounded bg-blue-500 text-white disabled:opacity-40 disabled:cursor-not-allowed"
+        >
+          Página Anterior
+        </button>
+        <span class="text-white">Página {{ currentPage }}</span>
+        <button
+          (click)="nextPage()"
+          [disabled]="currentPage * itemsPerPage >= allResults.length"
+          class="px-4 py-2 rounded bg-blue-500 text-white disabled:opacity-40 disabled:cursor-not-allowed"
+        >
+          Página Siguiente
+        </button>
+      </div>
+    </div>
+
+    <ng-template #noProducts>
+      <p>No se encontraron productos.</p>
+    </ng-template>
+  </div>
+
+  <div class="w-full">
+    <h2 class="mb-6 text-2xl font-bold">Lista de Regalos</h2>
+    <table class="table-auto w-full border-collapse border border-gray-800">
+      <thead>
+        <tr class="bg-gray-200">
+          <th class="border border-gray-800 px-4 py-2">Nombre del Regalo</th>
+          <th class="border border-gray-800 px-4 py-2">Descripción</th>
+          <th class="border border-gray-800 px-4 py-2">Estado</th>
+          <th class="border border-gray-800 px-4 py-2">Invitado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let gift of gifts">
+          <td class="border border-gray-800 px-4 py-2">{{ gift.name }}</td>
+          <td class="border border-gray-800 px-4 py-2">{{ gift.description }}</td>
+          <td class="border border-gray-800 px-4 py-2">
+            <span *ngIf="!gift.isSelected">Disponible</span>
+            <span *ngIf="gift.isSelected">Seleccionado</span>
+          </td>
+          <td class="border border-gray-800 px-4 py-2">
+            <span *ngIf="gift.isSelected">
+              {{ gift.selectedBy?.nombre }} {{ gift.selectedBy?.apellido }}
+            </span>
+            <span *ngIf="!gift.isSelected">N/A</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

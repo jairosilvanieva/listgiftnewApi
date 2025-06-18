@@ -1,0 +1,105 @@
+{
+  "users": [
+    {
+      "id": "qvlq6mjzm",
+      "name": "jairo",
+      "email": "jairosn22@gmail.com",
+      "password": "jairo360",
+      "events": []
+    },
+    {
+      "id": "ft7ibi0lp",
+      "name": "jairo",
+      "email": "jairosn22@gmail.com",
+      "password": "123456",
+      "events": []
+    }
+  ],
+  "events": [
+    {
+      "id": "0h612fs5o",
+      "eventType": "cumpleanos",
+      "location": "brown 2160",
+      "date": "2025-06-24",
+      "time": "14:44",
+      "description": "bienvenido a mi cumpleaños",
+      "code": "1BNIY9XD",
+      "userId": "ft7ibi0lp"
+    }
+  ],
+  "gifts": [
+    {
+      "id": "b2127eb1-757f-4e30-99d2-3eae1be1b214",
+      "name": "Man Short Sleeve Shirt",
+      "description": "Producto ficticio - Precio: 19.99",
+      "permalink": "https://dummyjson.com/products/86",
+      "isSelected": true,
+      "eventId": "0h612fs5o",
+      "selectedBy": {
+        "nombre": "rere",
+        "apellido": "rere",
+        "dni": "123456789"
+      }
+    },
+    {
+      "id": "7cf55187-14f1-493e-92c4-435de84f50c7",
+      "name": "Men Check Shirt",
+      "description": "Producto ficticio - Precio: 27.99",
+      "permalink": "https://dummyjson.com/products/87",
+      "isSelected": true,
+      "eventId": "0h612fs5o",
+      "selectedBy": {
+        "nombre": "rere",
+        "apellido": "rere",
+        "dni": "123456789"
+      }
+    },
+    {
+      "id": "97963a9f-55d6-4915-8dca-13737646d67f",
+      "name": "iPad Mini 2021 Starlight",
+      "description": "Producto ficticio - Precio: 499.99",
+      "permalink": "https://dummyjson.com/products/159",
+      "isSelected": false,
+      "eventId": "0h612fs5o"
+    },
+    {
+      "id": "12ce1a12-61ec-4ef1-acc1-4ecde147e8ec",
+      "name": "Apple iPhone Charger",
+      "description": "Producto ficticio - Precio: 19.99",
+      "permalink": "https://dummyjson.com/products/104",
+      "isSelected": false,
+      "eventId": "0h612fs5o"
+    },
+    {
+      "id": "eyb03k14",
+      "name": "Apple AirPods Max Silver",
+      "description": "Producto ficticio - Precio: 549.99",
+      "permalink": "https://dummyjson.com/products/101",
+      "isSelected": false,
+      "eventId": "1BNIY9XD"
+    }
+  ],
+  "guests": [
+    {
+      "id": "18fc",
+      "nombre": "fefe",
+      "apellido": "fefe",
+      "dni": "35334153",
+      "eventId": "0h612fs5o"
+    },
+    {
+      "id": "5375",
+      "nombre": "fafa",
+      "apellido": "fafa",
+      "dni": "12345678",
+      "eventId": "0h612fs5o"
+    },
+    {
+      "id": "a306",
+      "nombre": "fofo",
+      "apellido": "fofo",
+      "dni": "123456789",
+      "eventId": "0h612fs5o"
+    }
+  ]
+}
